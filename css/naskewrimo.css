@@ -1,0 +1,94 @@
+body {
+	font-family: monospace;
+}
+
+label {
+	margin-right: 8px;
+}
+input {
+	font-family: inherit;
+	font-size: 20px;
+}
+
+h1 a {
+	text-decoration: none;
+}	
+
+a {
+	color: inherit;
+	text-decoration: underline;
+	font-weight: bold;
+}
+a:hover {
+	background-color: #ccf;
+}
+a:active {
+	color: #fff;
+	background-color: #00f;
+}
+a.dangerous {
+	color: #f99;
+}
+a.dangerous:hover {
+	color: #900;
+	background-color: #fcc;
+}
+a.dangerous:active {
+	color: #fff;
+	background-color: #f00;
+}
+
+#header {
+	border-bottom: 1px solid black;
+	text-align: center;
+}
+
+#flashMessage {
+	color: #c00;
+}
+
+#footer {
+	border-top: 1px solid black;
+	text-align: center;
+}
+
+ul.links {
+	list-style: none;
+	margin: 12px 0;
+	padding: 0;
+}
+ul.links li {
+	display: inline;
+}
+ul.links li a {
+	padding: 0 8px;
+}
+
+#footer ul.links a {
+	padding: 0;
+}
+
+#summary_day, #summary_people_count, #summary_name, #summary_sketches_count {
+	background-color: #ff9;
+	padding: 0 4px;
+}
+
+#directory {
+	width: 100%;
+}
+#directory td {
+	text-align: center;
+	width: 20%;
+	padding: 8px;
+}
+#directory a {
+	text-decoration: none;
+}
+
+td.wrote30 img {
+	border: 4px solid yellow;
+}
+td.wrote30 span.name {
+	background-color: yellow;
+	padding: 0 8px;
+}

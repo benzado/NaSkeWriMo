@@ -1,0 +1,15 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+</IfModule>
+
+<IfModule mod_php5.c>
+	php_value date.timezone America/New_York
+	php_flag log_errors on
+</IfModule>
+
+# America/New_York
+# America/Chicago
+# America/Los_Angeles
