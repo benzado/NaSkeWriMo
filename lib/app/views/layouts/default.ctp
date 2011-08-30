@@ -6,6 +6,12 @@
 	<?php echo $scripts_for_layout ?>
 	<?php echo $html->css('naskewrimo'); ?>
 	<link rel="alternate" type="application/atom+xml" href="/feed/atom"/>
+	<meta property="og:title" content="National Sketch Writing Month" />
+	<meta property="og:type" content="activity" />
+	<meta property="og:url" content="http://www.naskewrimo.org/" />
+	<meta property="og:image" content="http://www.naskewrimo.org/img/fb.png" />
+	<meta property="og:site_name" content="NaSkeWriMo" />
+	<meta property="fb:admins" content="429804" />
 </head>
 <body>
 
@@ -17,18 +23,13 @@
 		<li><?= $html->link('About', '/pages/about') ?></li>
 		<li><?= $html->link('Writers', '/profiles') ?></li>
 		<li><?= $html->link('F.A.Q.', '/pages/faq') ?></li>
-		<li><a href="http://septembersketch.blogspot.com/">News Blog</a></li>
-		<li><a href="http://www.facebook.com/group.php?gid=19835704586">Facebook Group</a></li>
-		<li><a href="http://naskewrimo.tumblr.com/">Tumblelog</a></li>
+		<li><a href="http://naskewrimo.tumblr.com/">Blog</a></li>
+		<!-- <li><a href="http://www.facebook.com/group.php?gid=19835704586">Facebook Group</a></li> -->
 	</ul>
 	<p style="color: #909;">
 		Support the site!
-		<a href="http://www.zazzle.com/benzado/gifts?cg=196538341821228242&rf=238950482054443238">Buy some swag!</a>
-		There's
-		<a href="http://www.zazzle.com/naskewrimo_2010_t_shirt-235992339223613810?rf=238950482054443238">a T-shirt</a>,
-		<a href="http://www.zazzle.com/naskewrimo_2010_mug-168693372226939112?rf=238950482054443238">a mug</a>,
-		<a href="http://www.zazzle.com/naskewrimo_2010_tote_bag-149986192421240862?rf=238950482054443238">a tote bag</a>,
-		<strike>and more</strike>! There are only three items.
+		<strike><a href="http://www.zazzle.com/naskewrimo*">Buy some swag!</a></strike>
+		Design some swag!
 	</p>
 </div>
 
@@ -41,6 +42,9 @@
 		<li>Website by <a href="http://www.benzado.com/">Benjamin Ragheb</a></li>
 		<li>Hosting by <a href="http://nearlyfreespeech.net/">NearlyFreeSpeech.NET</a></li>
 	</ul>
+	<p>
+		<iframe src="http://www.facebook.com/plugins/like.php?app_id=252487608117350&amp;href=http%3A%2F%2Fwww.naskewrimo.org%2F&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>
+	</p>
 	<p>
 	Questions?  Email <a href="mailto:naskewrimo@benzado.com">naskewrimo@benzado.com</a>.
 	</p>
