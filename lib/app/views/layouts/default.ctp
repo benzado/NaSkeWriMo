@@ -28,8 +28,7 @@
 	</ul>
 	<p style="color: #909;">
 		Support the site!
-		<strike><a href="http://www.zazzle.com/naskewrimo*">Buy some swag!</a></strike>
-		Design some swag!
+		<a href="http://www.zazzle.com/naskewrimo*">Buy some swag!</a>
 	</p>
 </div>
 
