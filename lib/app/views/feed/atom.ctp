@@ -6,52 +6,42 @@
 	<subtitle>September is National Sketch Writing Month</subtitle>
 	<updated><?= date('c', $last_updated) ?></updated><?php /*  2003-12-13T18:30:02Z */ ?>
 	<link rel="self" href="http://www.naskewrimo.org/feed/atom"/>
+	<author>
+		<name>NaSkeWriMoBot</name>
+		<email>naskewrimobot@benzado.com</email>
+	</author>
 	
 <?php
 	function xmlencode($text) {
 		return htmlspecialchars(strip_tags($text), ENT_COMPAT, 'UTF-8');
 	}
-
-	foreach ($recent_sketches as $sketch): 
-		$title = $sketch['Sketch']['title'];
-		$sketch_url = $sketch['Sketch']['url'];
-		$profile_url = $html->url(array(
-			'controller' => 'profiles',
-			'action' => 'review',
-			$sketch['Profile']['id']
-		), true);
 ?>
 
+<?php foreach ($groups as $key => $group): ?>
 	<entry>
-
-<?php if (empty($title)) {
-	$entry_title = 'a new sketch by ' . $sketch['Profile']['display_name'];
-} else {
-	$entry_title = '"' . $title . '" by ' . $sketch['Profile']['display_name'];
-} ?>
-		<title type="text"><?= xmlencode($entry_title) ?></title>
-
-<?php if (empty($sketch_url)): ?>
-		<link href="<?= $profile_url ?>"/>
-<?php else: ?>
-		<link href="<?= xmlencode($sketch_url) ?>"/>
-<?php endif; ?>
-
-		<id>http://naskewrimo.org/sketch/<?= $sketch['Sketch']['id'] ?></id>
-		<updated><?= date('c', $sketch[0]['createdTime']) ?></updated>
-		<summary type="text">
-<?php if (empty($sketch_url)): ?>
-			Click through to view <?= xmlencode($sketch['Profile']['display_name']) ?>'s profile.
-<?php else: ?>
-			Click through to read <?= xmlencode($sketch['Profile']['display_name']) ?>'s sketch.
-<?php endif; ?>
-		</summary>
-		<author>
-			<name><?= xmlencode($sketch['Profile']['display_name']) ?></name>
-			<uri><?= xmlencode($profile_url); ?></uri>
-		</author>
+		<id>http://naskewrimo.org/sketches/<?= $key ?></id>
+		<?php
+			$count = count($group['sketches']);
+			$title = sprintf(
+				'%s for %s',
+				($count > 1) ? "$count New Sketches" : "1 New Sketch",
+				date('Y F jS, ga', $group['time'])
+			);
+		?>
+		<title type="text"><?= xmlencode($title) ?></title>
+		<updated><?= date('c', $group['time']) ?></updated>
+		<link rel="via" href="http://www.naskewrimo.org/"/>
+		<content type="html">
+			<p>
+			<?php foreach ($group['sketches'] as $sketch) {
+				$element = $this->element('sketch', array(
+					'sketch' => $sketch,
+					'showicon' => true,
+					'showdelete' => false));
+				echo htmlspecialchars($element, ENT_COMPAT, 'UTF-8');
+			} ?>
+			</p>
+		</content>
 	</entry>
-
-<?php endforeach; ?>
-
+<?php endforeach ?>
 </feed>
