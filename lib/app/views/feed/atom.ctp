@@ -32,7 +32,7 @@
 		<updated><?= date('c', $group['time']) ?></updated>
 		<link rel="via" href="http://www.naskewrimo.org/"/>
 		<content type="html">
-			<p>
+			&lt;p&gt;
 			<?php foreach ($group['sketches'] as $sketch) {
 				$element = $this->element('sketch', array(
 					'sketch' => $sketch,
@@ -40,7 +40,7 @@
 					'showdelete' => false));
 				echo htmlspecialchars($element, ENT_COMPAT, 'UTF-8');
 			} ?>
-			</p>
+			&lt;/p&gt;
 		</content>
 	</entry>
 <?php endforeach ?>
