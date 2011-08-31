@@ -43,10 +43,10 @@
 		<li>Hosting by <a href="http://nearlyfreespeech.net/">NearlyFreeSpeech.NET</a></li>
 	</ul>
 	<p>
-		<iframe src="http://www.facebook.com/plugins/like.php?app_id=252487608117350&amp;href=http%3A%2F%2Fwww.naskewrimo.org%2F&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>
+	Questions?  Email <a href="mailto:naskewrimo@benzado.com">naskewrimo@benzado.com</a>.
 	</p>
 	<p>
-	Questions?  Email <a href="mailto:naskewrimo@benzado.com">naskewrimo@benzado.com</a>.
+		<iframe src="http://www.facebook.com/plugins/like.php?app_id=252487608117350&amp;href=http%3A%2F%2Fwww.naskewrimo.org%2F&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>
 	</p>
 </div>
 
