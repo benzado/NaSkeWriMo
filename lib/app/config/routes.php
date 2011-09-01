@@ -32,7 +32,7 @@ Router::connect('/', array('controller' => 'updates', 'action' => 'home'));
 Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
 Router::connect('/sketches/add', array('controller' => 'sketches', 'action' => 'add'));
-Router::connect('/sketches/delete', array('controller' => 'sketches', 'action' => 'delete'));
+Router::connect('/sketches/delete/*', array('controller' => 'sketches', 'action' => 'delete'));
 Router::connect('/sketches/*', array('controller' => 'updates', 'action' => 'hour'));
 
 /**
