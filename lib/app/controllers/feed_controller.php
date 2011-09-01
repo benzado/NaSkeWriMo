@@ -1,6 +1,7 @@
 <?php
 
 define('DATEGROUP_FORMAT', 'YmdH'); // determines how sketches are batched
+// DATEGROUP_FORMAT is duplicated in updates_controller.php
 
 class FeedController extends AppController
 {

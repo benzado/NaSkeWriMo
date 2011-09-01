@@ -30,14 +30,16 @@
 		?>
 		<title type="text"><?= xmlencode($title) ?></title>
 		<updated><?= date('c', $group['time']) ?></updated>
-		<link rel="via" href="http://www.naskewrimo.org/"/>
+		<link rel="alternate" href="http://www.naskewrimo.org/sketches/<?= $key ?>"/>
 		<content type="html">
 			&lt;p&gt;
 			<?php foreach ($group['sketches'] as $sketch) {
 				$element = $this->element('sketch', array(
 					'sketch' => $sketch,
 					'showicon' => true,
-					'showdelete' => false));
+					'showdelete' => false,
+					'datetimeformat' => 'g:ia'
+				));
 				echo htmlspecialchars($element, ENT_COMPAT, 'UTF-8');
 			} ?>
 			&lt;/p&gt;

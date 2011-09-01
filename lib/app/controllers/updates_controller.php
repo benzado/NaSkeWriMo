@@ -83,5 +83,44 @@ class UpdatesController extends AppController
     	));
     	$this->set('top_writers', $top_writers);
 	}
+
+	function hour($group_key)
+	{
+        $this->helpers[] = 'Gravatar';
+
+        $matches = array();
+        $r = preg_match(
+            '/^(\d{4})(\d{2})(\d{2})(\d{2})$/', $group_key, $matches
+        );
+        if ($r == 0) {
+            return; // error!
+        }
+        $year = $matches[1];
+        $month = $matches[2];
+        $day = $matches[3];
+        $hour = $matches[4];
+        $datetime = mktime(
+            $hour,
+            0,
+            0,
+            $month,
+            $day,
+            $year
+        );
+        $sketches = $this->Sketch->find('all', array(
+            'fields' => array(
+                'Sketch.*',
+                'Profile.*',
+                'UNIX_TIMESTAMP(Sketch.created) AS createdTime'
+            ),
+            'order' => 'Sketch.created ASC',
+            'conditions' => array(
+                'Sketch.created >=' => date('Y-m-d H:00:00', $datetime),
+                'Sketch.created <=' => date('Y-m-d H:59:59', $datetime),
+            )
+        ));
+        $this->set('sketches', $sketches);
+        $this->set('datetime', $datetime);
+    }
    	
 }

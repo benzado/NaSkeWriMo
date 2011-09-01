@@ -1,6 +1,18 @@
+<?php
+	if (! isset($datetimeformat)) {
+		$datetimeformat = 'Y-m-d H:i:s';
+	}
+?>
 <div class="sketchitem">
-	<?= $sketch['Sketch']['created'] ?>:
 	<?php
+		if ($datetimeformat == 'Y-m-d H:i:s') {
+			echo $sketch['Sketch']['created'];
+			echo ': ';
+		} elseif ($datetimeformat) {
+			echo date($datetimeformat, $sketch[0]['createdTime']);
+			echo ': ';
+		}
+
 		if ($showicon) {
 			echo $gravatar->imgTag(array('email' => $sketch['Profile']['email_address'], 'size' => 24, 'default' => 'identicon'));
 			echo ' ';

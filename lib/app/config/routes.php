@@ -30,6 +30,8 @@
  */
 Router::connect('/', array('controller' => 'updates', 'action' => 'home'));
 Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
+Router::connect('/sketches/*', array('controller' => 'updates', 'action' => 'hour'));
+
 /**
  * Here, we are connecting '/' (base path) to controller called 'Pages',
  * its action called 'display', and we pass a param to select the view file
