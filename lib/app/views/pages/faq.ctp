@@ -19,3 +19,11 @@
 <p>One of the greatest inhibitors to writing is judgment. Potential writers don't write because they are worried that they don't have enough ideas or that the ideas they have aren't good enough. So they wait, when what they should be doing is simply writing.</p>
 
 <p>If this website became a forum to vote on sketches, writers would begin to worry about the quality of their output, or compete with one another for rankings, and that would take away from the mission of this project. NaSkeWriMo is about motivating yourself to write without judgment.</p>
+
+<h2>Why should I buy a T-shirt/mug/tote bag?</h2>
+
+<p>Operating this website costs real money, that comes out of our pockets. (At our current level of popularity, that comes to about $20 per year.) We could have put up a button asking for donations, but who wants to donate money without getting <a href="http://www.zazzle.com/naskewrimo*">a tote bag</a> in return?</p>
+
+<h2>Can I see the source code to the website?</h2>
+
+<p>Absolutely! The website is written in PHP using the CakePHP framework. <a href="https://github.com/benzado/NaSkeWriMo">All the source is available on GitHub</a>. If you can contribute code or simply <a href="https://github.com/benzado/NaSkeWriMo/issues">report bugs and request features on the issue tracker</a>.</p>
