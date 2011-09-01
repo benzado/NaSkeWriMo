@@ -61,11 +61,6 @@ class UpdatesController extends AppController
         }
 
         $all_recent_updates = $this->Sketch->find('all', array(
-            'fields' => array(
-                'Sketch.*',
-                'Profile.*',
-                'UNIX_TIMESTAMP(Sketch.created) AS createdTime'
-            ),
             'order' => 'Sketch.created DESC',
             'limit' => 20
         ));
@@ -83,7 +78,10 @@ class UpdatesController extends AppController
             'order' => 'Count DESC',
             'limit' => 20,
             'conditions' => array(
-                'Sketch.created BETWEEN ? AND ?' => array($year.'-09-01', $year.'-10-01')
+                'Sketch.created BETWEEN ? AND ?' => array(
+                    $year.'-09-01',
+                    $year.'-10-01'
+                )
             )
         ));
         $this->set('top_writers', $top_writers);
@@ -113,11 +111,6 @@ class UpdatesController extends AppController
             $year
         );
         $sketches = $this->Sketch->find('all', array(
-            'fields' => array(
-                'Sketch.*',
-                'Profile.*',
-                'UNIX_TIMESTAMP(Sketch.created) AS createdTime'
-            ),
             'order' => 'Sketch.created ASC',
             'conditions' => array(
                 'Sketch.created BETWEEN ? AND ?' => array(

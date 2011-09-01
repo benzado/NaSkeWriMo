@@ -63,7 +63,8 @@
 		} else {
 			$last_date_header = false;
 			foreach ($all_recent_updates as $sketch) {
-				$date_header = date('F j, Y', $sketch[0]['createdTime']);
+				$dt = strtotime($sketch['Sketch']['created']);
+				$date_header = date('F j, Y', $dt);
 				if ($date_header != $last_date_header) {
 					printf("<h3>%s</h3>\n", $date_header);
 					$last_date_header = $date_header;

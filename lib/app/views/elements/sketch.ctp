@@ -9,7 +9,8 @@
 			echo $sketch['Sketch']['created'];
 			echo ': ';
 		} elseif ($datetimeformat) {
-			echo date($datetimeformat, $sketch[0]['createdTime']);
+			$dt = strtotime($sketch['Sketch']['created']);
+			echo date($datetimeformat, $dt);
 		}
 
 		if ($showicon) {

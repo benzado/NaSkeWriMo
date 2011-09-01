@@ -15,11 +15,6 @@ class FeedController extends AppController
         $then = $now - (60 * 60 * 24 * 7); // one week
 
         $recent_sketches = $this->Sketch->find('all', array(
-            'fields' => array(
-                'Profile.*',
-                'Sketch.*',
-                'UNIX_TIMESTAMP(created) AS createdTime'
-            ),
             'order' => 'Sketch.created DESC',
             'conditions' => array('Sketch.created >=' => date('Y-m-d', $then))
         ));
@@ -29,7 +24,8 @@ class FeedController extends AppController
         $last_updated = null;
         $groups = array();
         foreach ($recent_sketches as $sketch) {
-            $dategroup = date(DATEGROUP_FORMAT, $sketch[0]['createdTime']);
+			$dt = strtotime($sketch['Sketch']['created']);
+            $dategroup = date(DATEGROUP_FORMAT, $dt);
             if ($dategroup == $current_dategroup) {
                 continue;
             }
