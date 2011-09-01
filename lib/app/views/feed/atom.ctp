@@ -38,7 +38,7 @@
 					'sketch' => $sketch,
 					'showicon' => true,
 					'showdelete' => false,
-					'datetimeformat' => 'g:ia'
+					'datetimeformat' => 'g:ia '
 				));
 				echo htmlspecialchars($element, ENT_COMPAT, 'UTF-8');
 			} ?>

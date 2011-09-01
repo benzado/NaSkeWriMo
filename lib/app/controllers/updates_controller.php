@@ -61,6 +61,11 @@ class UpdatesController extends AppController
     	}
     	
     	$all_recent_updates = $this->Sketch->find('all', array(
+            'fields' => array(
+                'Sketch.*',
+                'Profile.*',
+                'UNIX_TIMESTAMP(Sketch.created) AS createdTime'
+            ),
     		'order' => 'Sketch.created DESC',
     		'limit' => 20
     	));

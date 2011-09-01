@@ -61,11 +61,19 @@
 		if (count($all_recent_updates) == 0) {
 			echo 'None yet.';
 		} else {
+			$last_date_header = false;
 			foreach ($all_recent_updates as $sketch) {
+				$date_header = date('F j, Y', $sketch[0]['createdTime']);
+				if ($date_header != $last_date_header) {
+					printf("<h3>%s</h3>\n", $date_header);
+					$last_date_header = $date_header;
+				}
 				echo $this->element('sketch', array(
 					'sketch' => $sketch,
 					'showicon' => true,
-					'showdelete' => false));
+					'showdelete' => false,
+					'datetimeformat' => 'h:ia '
+				));
 			}
 		}
 	?>

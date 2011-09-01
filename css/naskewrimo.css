@@ -92,3 +92,14 @@ td.wrote30 span.name {
 	background-color: yellow;
 	padding: 0 8px;
 }
+
+div.sketchitem {
+	height: 24px;
+	line-height: 24px;
+	margin: 2px 0;
+}
+
+div.sketchitem img {
+	vertical-align: middle;
+}
+

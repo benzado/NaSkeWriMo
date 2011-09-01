@@ -17,7 +17,7 @@
 					'sketch' => $sketch,
 					'showicon' => true,
 					'showdelete' => false,
-					'datetimeformat' => 'g:ia'
+					'datetimeformat' => 'g:ia '
 				));
 			}
 		}

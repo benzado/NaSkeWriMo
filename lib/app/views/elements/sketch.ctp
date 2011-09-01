@@ -1,16 +1,15 @@
 <?php
 	if (! isset($datetimeformat)) {
-		$datetimeformat = 'Y-m-d H:i:s';
+		$datetimeformat = 'Y-m-d H:i:s: ';
 	}
 ?>
 <div class="sketchitem">
 	<?php
-		if ($datetimeformat == 'Y-m-d H:i:s') {
+		if ($datetimeformat == 'Y-m-d H:i:s: ') {
 			echo $sketch['Sketch']['created'];
 			echo ': ';
 		} elseif ($datetimeformat) {
 			echo date($datetimeformat, $sketch[0]['createdTime']);
-			echo ': ';
 		}
 
 		if ($showicon) {
