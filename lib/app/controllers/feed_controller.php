@@ -30,13 +30,13 @@ class FeedController extends AppController
                 continue;
             }
             if ($last_updated == null) {
-                $last_updated = $sketch[0]['createdTime'];
+                $last_updated = $dt;
             }
             if (isset($groups[$dategroup])) {
                 $groups[$dategroup]['sketches'][] = $sketch;
             } else {
                 $groups[$dategroup] = array(
-                    'time' => $sketch[0]['createdTime'],
+                    'time' => $dt,
                     'sketches' => array($sketch)
                 );
             }
