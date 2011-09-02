@@ -12,6 +12,7 @@
 	<meta property="og:image" content="http://www.naskewrimo.org/img/fb.png" />
 	<meta property="og:site_name" content="NaSkeWriMo" />
 	<meta property="fb:admins" content="429804" />
+	<meta property="fb:page_id" content="241983542504026" />
 </head>
 <body>
 
@@ -24,7 +25,8 @@
 		<li><?= $html->link('Writers', '/profiles') ?></li>
 		<li><?= $html->link('F.A.Q.', '/pages/faq') ?></li>
 		<li><a href="http://naskewrimo.tumblr.com/">Blog</a></li>
-		<!-- <li><a href="http://www.facebook.com/group.php?gid=19835704586">Facebook Group</a></li> -->
+		<li><a href="http://www.facebook.com/groups/164102783670691/">Facebook</a></li>
+		<li><a href="http://twitter.com/NaSkeWriMo">@NaSkeWriMo</a></li>
 	</ul>
 	<p style="color: #909;">
 		Support the site!
