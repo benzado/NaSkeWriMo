@@ -3,7 +3,7 @@ class AuthController extends AppController
 {
 	var $name = 'Auth';
 	var $uses = array('Profile');
-    var $components = array('Session', 'Email');
+	var $components = array('Session', 'Email');
 
 	function login()
 	{
