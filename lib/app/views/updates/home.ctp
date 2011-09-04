@@ -85,7 +85,7 @@
 	<?php if (count($top_writers) == 0): ?>
 		None yet.
 	<?php else: foreach ($top_writers as $writer): ?>
-		<div>
+		<div class="sketchitem">
 			<?php
 				$linkinfo = array(
 					'controller' => 'profiles',
