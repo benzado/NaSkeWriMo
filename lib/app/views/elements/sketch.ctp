@@ -14,9 +14,17 @@
 		}
 
 		if ($showicon) {
-			echo $gravatar->imgTag(array('email' => $sketch['Profile']['email_address'], 'size' => 24, 'default' => 'identicon'));
+			echo $html->link( 
+				$gravatar->imgTag(array('email' => $sketch['Profile']['email_address'], 'size' => 24, 'default' => 'identicon')),
+				array(
+					'controller' => 'profiles',
+					'action' => 'review',
+					$sketch['Profile']['id']
+				),
+				array('escape' => false)
+			);
 			echo ' ';
-			echo $html->link(
+			echo $html->link( 
 				$sketch['Profile']['display_name'], 
 				array(
 					'controller' => 'profiles',

@@ -85,8 +85,10 @@
 	<?php if (count($top_writers) == 0): ?>
 		None yet.
 	<?php else: foreach ($top_writers as $writer): ?>
-		<div>
-			<?php echo $gravatar->imgTag(array('email' => $writer['Profile']['email_address'], 'size' => 24, 'default' => 'identicon')) ?>
+		<div> 
+		<?= $html->link($gravatar->imgTag(array('email' => $writer['Profile']['email_address'], 'size' => 24, 'default' => 'identicon')), 
+		    array('controller' => 'profiles', 'action' => 'review', $writer['Profile']['id']), 
+		    array('escape' => false)) ?>
 			<?= $html->link($writer['Profile']['display_name'], array('controller' => 'profiles', 'action' => 'review', $writer['Profile']['id'])) ?> 
 			wrote
 			<?= $writer[0]['Count'] ?>

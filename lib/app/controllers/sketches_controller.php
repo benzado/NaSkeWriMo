@@ -18,7 +18,8 @@ class SketchesController extends AppController
 		if ($this->Sketch->save($this->data)) {
 			$this->Session->setFlash('Sketch count updated.');
     	} else {
-			$this->Session->setFlash('Cannot update sketch count.');
+			$valErrs = join('<br />', $this->Sketch->validationErrors);
+			$this->Session->setFlash('Cannot update sketch count.<br />'.$valErrs);
 		}
 		$this->redirect('/profiles/review/' . $current_profile['id']);
 	}
