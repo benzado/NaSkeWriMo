@@ -2,15 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8"/>
-
 	<title><?php echo $title_for_layout ?></title>
 	<?php echo $scripts_for_layout ?>
 	<?php echo $html->css('naskewrimo'); ?>
-
-	<!-- iphone stuff. Defined later so we can override prev styles -->
-	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"> 
-	<?=  $this->Html->css('iphone.css', 'stylesheet', array('media'=>'all and (max-device-width: 480px)')) ?>
-	<!-- /iphone stuff -->
 	<link rel="alternate" type="application/atom+xml" href="/feed/atom"/>
 	<meta property="og:title" content="National Sketch Writing Month" />
 	<meta property="og:type" content="activity" />
@@ -23,9 +17,7 @@
 <body>
 
 <div id="header">
-	<h1>
-	<?= $html->link(($isMobile)?'NaSkeWriMo':'September is National Sketch Writing Month', '/'); ?>
-	</h1>
+	<h1><?= $html->link('September is National Sketch Writing Month', '/'); ?></h1>
 	<p>30 days. 30 sketches. No excuses. No apologies.</p>
 	<ul class="links">
 		<li><?= $html->link('Home', '/') ?></li>
