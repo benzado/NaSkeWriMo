@@ -1,11 +1,6 @@
-<?php
-	if (! isset($datetimeformat)) {
-		$datetimeformat = 'Y-m-d H:i:s: ';
-	}
-?>
 <div class="sketchitem">
 	<?php
-		if ($datetimeformat == 'Y-m-d H:i:s: ') {
+		if (! isset($datetimeformat)) {
 			echo $sketch['Sketch']['created'];
 			echo ': ';
 		} elseif ($datetimeformat) {
@@ -14,24 +9,22 @@
 		}
 
 		if ($showicon) {
+			$linkinfo = array(
+				'controller' => 'profiles',
+				'action' => 'review',
+				$sketch['Profile']['id']
+			);
 			echo $html->link( 
-				$gravatar->imgTag(array('email' => $sketch['Profile']['email_address'], 'size' => 24, 'default' => 'identicon')),
-				array(
-					'controller' => 'profiles',
-					'action' => 'review',
-					$sketch['Profile']['id']
-				),
+				$gravatar->imgTag(array(
+					'email' => $sketch['Profile']['email_address'],
+					'size' => 24,
+					'default' => 'identicon'
+				)),
+				$linkinfo,
 				array('escape' => false)
 			);
 			echo ' ';
-			echo $html->link( 
-				$sketch['Profile']['display_name'], 
-				array(
-					'controller' => 'profiles',
-					'action' => 'review',
-					$sketch['Profile']['id']
-				)
-			);
+			echo $html->link($sketch['Profile']['display_name'], $linkinfo);
 			echo ' wrote ';
 		}
 
@@ -43,7 +36,10 @@
 			echo '&#8220;';
 		}
 		if (!empty($url)) {
-			echo '<a href="', htmlspecialchars($url, ENT_COMPAT, 'UTF-8'), '" rel="nofollow">';
+			printf(
+				'<a href="%s" rel="nofollow">',
+				htmlspecialchars($url, ENT_COMPAT, 'UTF-8')
+			);
 		}
 		if (empty($title)) {
 			echo 'a new sketch';
