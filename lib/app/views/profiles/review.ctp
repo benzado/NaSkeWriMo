@@ -1,6 +1,8 @@
 <h2 id="summary">
-	<?php echo $gravatar->imgTag(array('email' => $this->data['Profile']['email_address'], 'default' => 'identicon')) ?>
-
+	<?= $gravatar->imgTag(array(
+		'email' => $this->data['Profile']['email_address'],
+		'default' => 'identicon'
+	)) ?>
 	<?php if ($year == $current_year): ?>
 		Today is 
 		<span id="summary_day"><?= $summary_day ?></span>

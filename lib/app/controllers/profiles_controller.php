@@ -63,7 +63,14 @@ class ProfilesController extends AppController
 		if (empty($this->data['Profile']['display_link'])) {
 			$this->set('summary_name_html', $this->data['Profile']['display_name']);
 		} else {
-			$this->set('summary_name_html', '<a href="'. $this->data['Profile']['display_link'] . '">' . $this->data['Profile']['display_name'] . '</a>');
+			$this->set(
+				'summary_name_html',
+				sprintf(
+					'<a href="%s" rel="nofollow">%s</a>',
+					$this->data['Profile']['display_link'],
+					$this->data['Profile']['display_name']
+				)
+			);
 		}
 		
 		$conditions = array(
