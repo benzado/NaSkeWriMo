@@ -29,7 +29,8 @@ class ProfilesController extends AppController
 				$this->Session->write('Profile', $current_profile);
 				$this->Session->setFlash('Profile updated.');
 			} else {
-				$this->Session->setFlash('Error updating profile.');
+				$valErrs = join('<br />', $this->Profile->validationErrors);
+				$this->Session->setFlash('Cannot update profile.<br />'.$valErrs);
 			}
 		}
 		$this->redirect('/profiles/review/' . $current_profile['id']);
