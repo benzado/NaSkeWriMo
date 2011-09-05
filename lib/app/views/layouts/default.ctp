@@ -15,6 +15,7 @@
 	<meta property="fb:page_id" content="241983542504026" />
 </head>
 <body>
+<div id="root">
 
 <div id="header">
 	<h1><?= $html->link('September is National Sketch Writing Month', '/'); ?></h1>
@@ -64,5 +65,6 @@ piwikTracker.enableLinkTracking();
 </script><noscript><p><img src="http://trekker.benzado.com/piwik.php?idsite=11" style="border:0" alt="" /></p></noscript>
 <!-- End Piwik Tracking Code -->
 
+</div>
 </body>
 </html>

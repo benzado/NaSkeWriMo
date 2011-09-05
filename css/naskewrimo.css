@@ -1,5 +1,13 @@
 body {
 	font-family: monospace;
+	font-size: 13px;
+	text-align: center;
+}
+
+div#root {
+	max-width: 800px;
+	margin: auto;
+	text-align: left;
 }
 
 label {
