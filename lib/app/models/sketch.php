@@ -18,10 +18,14 @@ class Sketch extends AppModel
     {
     	// If user surrounded title with double quotes, remove them.
     	$proposed_title = $this->data['Sketch']['title'];
-    	$pattern = '/^["\x{201c}\x{201d}](.+)["\x{201c}\x{201d}]$/u';
+    	$pattern = '/^(\s*["\x{201c}\x{201d}]\s*)(.+?)(\s*["\x{201c}\x{201d}]\s*)$/u';
     	if (preg_match($pattern, $proposed_title, $m) > 0) {
-    		$this->data['Sketch']['title'] = $m[1];
+    		$this->data['Sketch']['title'] = $m[2];
     	}
+
+			if(!empty($this->data['Sketch']['link'])) {
+				$this->data['Sketch']['link'] = trim($this->data['Sketch']['link']);
+			}
     	return true;
     }
 
