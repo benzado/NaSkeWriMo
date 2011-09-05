@@ -46,6 +46,8 @@ class FeedController extends AppController
         $this->set('groups', $groups);
         $this->layout = null;
         header('Content-Type: application/atom+xml');
+        header('Cache-Control: public, max-age=3600'); // good for one hour
+        header(sprintf('Last-Modified: %s', date(DATE_RFC1123, $last_updated)));
     }
 
 }

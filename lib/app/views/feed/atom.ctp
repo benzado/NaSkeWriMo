@@ -4,7 +4,7 @@
 	<id>http://naskewrimo.org/feed/atom</id>
 	<title>NaSkeWriMo Sketches</title>
 	<subtitle>September is National Sketch Writing Month</subtitle>
-	<updated><?= date('c', $last_updated) ?></updated><?php /*  2003-12-13T18:30:02Z */ ?>
+	<updated><?= date(DATE_ATOM, $last_updated) ?></updated>
 	<link rel="self" href="http://www.naskewrimo.org/feed/atom"/>
 	<author>
 		<name>NaSkeWriMoBot</name>
@@ -29,7 +29,7 @@
 			);
 		?>
 		<title type="text"><?= xmlencode($title) ?></title>
-		<updated><?= date('c', $group['time']) ?></updated>
+		<updated><?= date(DATE_ATOM, $group['time']) ?></updated>
 		<link rel="alternate" href="http://www.naskewrimo.org/sketches/<?= $key ?>"/>
 		<content type="html">
 			&lt;p&gt;
