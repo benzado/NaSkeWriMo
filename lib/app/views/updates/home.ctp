@@ -82,33 +82,47 @@
 
 <h2>Most Prolific in <?= $year ?></h2>
 <p>
-	<?php if (count($top_writers) == 0): ?>
-		None yet.
-	<?php else: foreach ($top_writers as $writer): ?>
-		<div class="sketchitem">
-			<?php
-				$linkinfo = array(
-					'controller' => 'profiles',
-					'action' => 'review',
-					$writer['Profile']['id']
-				);
-				echo $html->link(
-					$gravatar->imgTag(array(
-						'email' => $writer['Profile']['email_address'],
-						'size' => 24,
-						'default' => 'identicon'
-					)),
-					$linkinfo, 
-					array('escape' => false)
-				);
-				echo ' ';
-				echo $html->link($writer['Profile']['display_name'], $linkinfo);
-				printf(
-					' wrote %d sketch%s',
-					$writer[0]['Count'],
-					$writer[0]['Count'] == 1 ? '' : 'es'
-				);
-			?>
-		</div>
-	<?php endforeach; endif; ?>
+<?php 
+	if (count($top_writers) == 0) {
+		echo "None yet.";
+	} else {
+		$top = array();
+		foreach ($top_writers as $writer) {
+			$count = $writer[0]['Count'];
+			if ( ! isset($top[$count])) {
+				$top[$count] = array();
+			}
+			$linkinfo = array(
+				'controller' => 'profiles',
+				'action' => 'review',
+				$writer['Profile']['id']
+			);
+			$icon_html = $html->link(
+				$gravatar->imgTag(array(
+					'email' => $writer['Profile']['email_address'],
+					'size' => 24,
+					'default' => 'identicon'
+				)),
+				$linkinfo, 
+				array('escape' => false)
+			);
+			$name_html = $html->link(
+				$writer['Profile']['display_name'],
+				$linkinfo
+			);
+			// this non-breaking space doesn't seem to have an effect
+			$top[$count][] = $icon_html . '&nbsp;' . $name_html;
+		}
+		echo "<table>\n";
+		foreach ($top as $count => $names) {
+			printf(
+				"<tr><th>%d sketch%s</th><td><div class=\"sketchitem\">%s</div></td></tr>",
+				$count,
+				$count == 1 ? '' : 'es',
+				join(' ', $names)
+			);
+		}
+		echo "</table>\n";
+	}
+?>
 </p>
