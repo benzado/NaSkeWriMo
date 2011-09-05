@@ -25,4 +25,17 @@ class Sketch extends AppModel
     	return true;
     }
 
+		function findYearsWithSketches($profile_id) {
+			return $this->find('all', array(
+				'fields' => array(
+					'YEAR(Sketch.created) as Year',
+					'COUNT(Sketch.id) as `NumSketches`'
+				),
+				'group' => 'YEAR(Sketch.created)',
+				'conditions' => array(
+					'Sketch.profile_id' => $profile_id
+				),
+				'order' => array('Sketch.created' => 'ASC')
+			));
+		}
 }

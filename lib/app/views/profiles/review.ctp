@@ -42,7 +42,8 @@
 <p>
 	See also:
 	<?php
-		foreach ($all_years as $y) {
+		foreach ($years_with_sketches as $year) {
+			$y = $year[0]['Year'];
 			echo ' ' . $html->link($y, array(
 				'controller' => 'profiles',
 				'action' => 'review',

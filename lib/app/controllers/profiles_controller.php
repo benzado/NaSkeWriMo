@@ -96,6 +96,9 @@ class ProfilesController extends AppController
     		'order' => 'Sketch.created DESC'
     	));
     	$this->set('all_sketches', $all_sketches);
+
+			$years_with_sketches = $this->Sketch->findYearsWithSketches($id);
+			$this->set('years_with_sketches', $years_with_sketches);
 	}
 
 

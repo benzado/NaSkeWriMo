@@ -67,4 +67,5 @@ piwikTracker.enableLinkTracking();
 
 </div>
 </body>
+<?=$this->element('sql_dump')?>
 </html>
