@@ -23,7 +23,12 @@
 <p>
 	<?php
 		if (count($all_sketches) == 0) {
-			echo 'None yet.';
+			if($current_year == $year) {
+				echo 'None yet.';
+			}
+			else {
+				echo 'None written.';
+			}
 		} else {
 			foreach ($all_sketches as $sketch) {
 				echo $this->element('sketch', array(
