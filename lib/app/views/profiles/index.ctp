@@ -1,4 +1,4 @@
-<p>A gallery of the <?= count($all_profiles) ?> writers who participated in <?= $year ?>.</p>
+<p>A gallery of the <?= count($all_profiles) ?> writers <?if($current_year != $year):?>who participated<?else:?>participating<?endif?> in <?= $year ?>.</p>
 <table id="directory">
 <?php
 	$columnCount = 5;
