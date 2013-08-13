@@ -18,11 +18,28 @@ class Sketch extends AppModel
     {
     	// If user surrounded title with double quotes, remove them.
     	$proposed_title = $this->data['Sketch']['title'];
-    	$pattern = '/^["\x{201c}\x{201d}](.+)["\x{201c}\x{201d}]$/u';
+    	$pattern = '/^(\s*["\x{201c}\x{201d}]\s*)(.+?)(\s*["\x{201c}\x{201d}]\s*)$/u';
     	if (preg_match($pattern, $proposed_title, $m) > 0) {
-    		$this->data['Sketch']['title'] = $m[1];
+    		$this->data['Sketch']['title'] = $m[2];
     	}
+
+			if(!empty($this->data['Sketch']['link'])) {
+				$this->data['Sketch']['link'] = trim($this->data['Sketch']['link']);
+			}
     	return true;
     }
 
+		function findYearsWithSketches($profile_id) {
+			return $this->find('all', array(
+				'fields' => array(
+					'YEAR(Sketch.created) as Year',
+					'COUNT(Sketch.id) as `NumSketches`'
+				),
+				'group' => 'YEAR(Sketch.created)',
+				'conditions' => array(
+					'Sketch.profile_id' => $profile_id
+				),
+				'order' => array('Sketch.created' => 'ASC')
+			));
+		}
 }

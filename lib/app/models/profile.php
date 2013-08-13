@@ -36,5 +36,15 @@ class Profile extends AppModel
             // . '&d=' . $default_url
             ;
     }
+
+		public function beforeValidate() 
+		{
+			foreach(array('display_name', 'display_link') as $field) {
+				if(!empty($this->data['Profile'][$field])) {
+					$this->data['Profile'][$field] = trim($this->data['Profile'][$field]);
+				}
+			}
+			return true;
+		}
     
 }

@@ -23,7 +23,12 @@
 <p>
 	<?php
 		if (count($all_sketches) == 0) {
-			echo 'None yet.';
+			if($current_year == $year) {
+				echo 'None yet.';
+			}
+			else {
+				echo 'None written.';
+			}
 		} else {
 			foreach ($all_sketches as $sketch) {
 				echo $this->element('sketch', array(
@@ -37,7 +42,8 @@
 <p>
 	See also:
 	<?php
-		foreach ($all_years as $y) {
+		foreach ($years_with_sketches as $year) {
+			$y = $year[0]['Year'];
 			echo ' ' . $html->link($y, array(
 				'controller' => 'profiles',
 				'action' => 'review',
